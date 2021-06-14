@@ -2,6 +2,7 @@
 
 <sdf version="1.5">
 	<world name="default">
+
 		<!-- A global light source -->
 		<include>
 			<uri>model://sun</uri>
@@ -14,7 +15,7 @@
 
 		<include>
 			<uri>model://robot</uri>
-			<pose>0 0 3 0 0 0</pose>
+			<pose>0 0 1 1.57 0 0</pose>
 		</include>
 	</world>
 </sdf>

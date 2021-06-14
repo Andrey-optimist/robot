@@ -1,31 +1,92 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
   <model name="robot">
-    <static>true</static>
+    <static>false</static>
+<self_collide>true</self_collide>
 
-    <link name="link">
-
+    <link name="body">
+<pose>0 0 0 0 0 0</pose>
       <collision name="collision">
         <geometry>
         <mesh>
-<uri>model://robot/mesh/robot_body.stl</uri>
-<scale>0.001 0.001 0.001</scale>
+<uri>model://robot/mesh/test.stl</uri>
+<scale>0.1 0.1 0.1</scale>
 	</mesh>       
         </geometry>
       </collision>
-
-      <visual name="visual">
+      <visual name="pokazhi">
         <geometry>
         <mesh>
-<uri>model://robot/mesh/robot_body.stl</uri>
-<scale>0.001 0.001 0.001</scale>
+<uri>model://robot/mesh/test.stl</uri>
+<scale>0.1 0.1 0.1</scale>
 	</mesh>  
         </geometry>
       </visual>
-
     </link>
 
 
+
+    <link name="wheel_r">
+<pose>0.3 0 0 0 3.14 -1.57</pose>
+      <collision name="collision">
+        <geometry>
+        <mesh>
+<uri>model://robot/mesh/wheel.stl</uri>
+<scale>0.03 0.03 0.03</scale>
+	</mesh>       
+        </geometry>
+      </collision>
+      <visual name="pokazhi">
+        <geometry>
+        <mesh>
+<uri>model://robot/mesh/wheel.stl</uri>
+<scale>0.03 0.03 0.03</scale>
+	</mesh>  
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="wheel_l">
+<pose>-0.3 0 0 0 3.14 1.57</pose>
+      <collision name="collision">
+        <geometry>
+        <mesh>
+<uri>model://robot/mesh/wheel.stl</uri>
+<scale>0.03 0.03 0.03</scale>
+	</mesh>       
+        </geometry>
+      </collision>
+      <visual name="pokazhi">
+        <geometry>
+        <mesh>
+<uri>model://robot/mesh/wheel.stl</uri>
+<scale>0.03 0.03 0.03</scale>
+	</mesh>  
+        </geometry>
+      </visual>
+    </link>
+
+
+<joint name="body_wheel_r" type="revolute">
+  <parent>body</parent>
+    <child>wheel_r</child>
+  <pose>0 0 0 0 0 0</pose>
+<axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+ </joint>
+
+
+
+<joint name="body_wheel_l" type="revolute">
+  <parent>body</parent>
+    <child>wheel_l</child>
+  <pose>0 0 0 0 0 0</pose>
+<axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+ </joint>
 
   </model>
 </sdf>
