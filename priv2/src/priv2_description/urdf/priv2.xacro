@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="priv2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+  <xacro:include filename="$(find priv2)/src/priv2_description/urdf/priv2.gazebo" />
+  <xacro:include filename="$(find priv2)/src/priv2_description/urdf/materials.xacro" />
+  <xacro:include filename="$(find priv2)/src/priv2_description/urdf/macros.xacro" />
+
+
+ <link  name="base_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass      value="0.5" />
+      <inertia
+        ixx="4.38E-06"
+        ixy="0"
+        ixz="0"
+        iyy="5.67E-06"
+        iyz="0"
+        izz="2.17E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" /> <!--0.01 0.1 -0.0025 -->
+      <geometry> 
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+ 
+
+ <link   name="wheel_r">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="1.08E-05"
+        ixy="0"
+        ixz="0"
+        iyy="1.08333E-05"
+        iyz="0"
+        izz="0.000001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.57 0 0" /> <!-- 0.0375 0.0175 0.07-->
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/wheel_r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.57 0 0" />
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/wheel_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+   <joint
+    name="Joint_wheel_r"
+    type="continuous">
+    <origin
+      xyz="-0.025 0.03 0.015"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_r" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+  <link   name="wheel_l">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="1.08E-05"
+        ixy="0"
+        ixz="0"
+        iyy="1.08333E-05"
+        iyz="0"
+        izz="0.000001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0" 
+        rpy="1.57 0 0" /> <!--0.0375 -0.0175 -0.13 -->
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/wheel_l.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"  
+        rpy="1.57 0 0" /> 
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/wheel_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint
+    name="Joint_wheel_l"
+    type="continuous">
+   <origin
+      xyz="-0.025 -0.03 0.015"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_l" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+</robot>
