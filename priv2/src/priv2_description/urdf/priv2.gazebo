@@ -2,22 +2,22 @@
 <robot>
 
 
-  <gazebo>
-    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+<!--  <gazebo>
+   <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <legacyMode>false</legacyMode>
       <alwaysOn>true</alwaysOn>
       <updateRate>20</updateRate>
       <leftJoint>Joint_wheel_l</leftJoint>
       <rightJoint>Joint_wheel_r</rightJoint>
       <wheelSeparation>0.4</wheelSeparation>
-      <wheelDiameter>0.3</wheelDiameter>
-      <torque>20</torque>
+      <wheelDiameter>0.02</wheelDiameter>
+      <WheelTorque>20</WheelTorque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>base_link</robotBaseFrame>
-    </plugin>
-  </gazebo>
+    </plugin> 
+  </gazebo> -->
 
 
   <gazebo reference="base_link">

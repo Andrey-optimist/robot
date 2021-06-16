@@ -11,7 +11,7 @@
  <link  name="base_link">
     <inertial>
       <origin
-        xyz="0 0 0"
+        xyz="-0.025 0 0"
         rpy="0 0 0" />
       <mass      value="0.5" />
       <inertia
@@ -86,6 +86,8 @@
           filename="package://priv2/src/priv2_description/meshes/wheel_r.STL" />
       </geometry>
     </collision>
+ <dynamics
+      friction="0.5" />
   </link>
 
 
@@ -101,6 +103,7 @@
       link="wheel_r" />
     <axis
       xyz="0 0 -1" />
+
   </joint>
 
   <link   name="wheel_l">
@@ -141,6 +144,8 @@
           filename="package://priv2/src/priv2_description/meshes/wheel_l.STL" />
       </geometry>
     </collision>
+ <dynamics
+      friction="0.5" />
   </link>
 
 
@@ -156,5 +161,161 @@
       link="wheel_l" />
     <axis
       xyz="0 0 -1" />
+
   </joint>
+
+  <!--<link   name="wheel_b">
+    <inertial>
+      <origin
+        xyz="0.00083781 -2.0474E-07 -2.0688E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.01" />
+      <inertia
+        ixx="4.3881E-08"
+        ixy="0"
+        ixz="0"
+        iyy="5.0048E-08"
+        iyz="0"
+        izz="5.0048E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/wheel_b.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/wheel_b.STL" />
+      </geometry>
+    </collision>
+  </link> -->
+
+ <link
+    name="wheel_b_axis">
+    <inertial>
+      <origin
+        xyz="-3.4694E-18 -0.0035 -1.7347E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.05" />
+      <inertia
+        ixx="2.7941E-08"
+        ixy="0"
+        ixz="0"
+        iyy="4.6383E-08"
+        iyz="0"
+        izz="2.3027E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/wheel_b_axis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/wheel_b_axis.STL" />
+      </geometry>
+    </collision>
+<dynamics
+      friction="0.2" />
+  </link>
+  <joint
+    name="Joint_wheel_b"
+    type="continuous">
+    <origin
+      xyz="0.025024 -4.1596E-05 0.002"
+      rpy="-1.5708 0 2.5198" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_b_axis" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics
+      friction="0.002" />
+  </joint>
+  <link
+    name="wheel_b">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.05" />
+      <inertia
+        ixx="4.3881E-08"
+        ixy="0"
+        ixz="0"
+        iyy="5.0048E-08"
+        iyz="0"
+        izz="5.0048E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/wheel_b.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://priv2/src/priv2_description/meshes/wheel_b.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_wheel_b_axis"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-2.7485 0.94901 0" />
+    <parent
+      link="wheel_b_axis" />
+    <child
+      link="wheel_b" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+
+
+
 </robot>
