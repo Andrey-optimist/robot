@@ -10,10 +10,10 @@
 
    <!-- TF stuff -->
         <!-- send fake joint values -->
-    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-        <param name="use_gui" value="true"/>
-    </node>
 
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="false"/>
+    </node>
         <!-- Combine joint values -->
       <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
     
@@ -21,8 +21,8 @@
   <node pkg="tf" type="static_transform_publisher" name="static_odom_broadcaster"
         args="0 0 0 0 0 0 map odom 100"/> 
     
-    <!-- run gazebo and spawn mybot  -->
-   <include file="$(find priv2)/src/priv2_gazebo/launch/priv2_world.launch"/> 
+    <!-- run gazebo and spawn mybot -->
+   <include file="$(find priv2)/src/priv2_gazebo/launch/priv2_world.launch"/>  
     
     <!-- software -->
 
