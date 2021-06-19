@@ -25,8 +25,8 @@
    <include file="$(find priv2)/src/priv2_gazebo/launch/priv2_world.launch"/> 
     
     <!-- software -->
+    <include file="$(find priv2)/src/priv2_config/launch/priv2_software.launch"/>
 
-    
      <!-- visualization -->      
    <node name="rviz" pkg="rviz" type="rviz"/> 
 </launch>

@@ -108,7 +108,7 @@
     <child
       link="wheel_r" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
 
   </joint>
 
@@ -222,7 +222,7 @@
     <child
       link="wheel_b_axis" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
   </joint>
   <link
     name="wheel_b">
@@ -270,8 +270,8 @@
     name="Joint_wheel_b_axis"
     type="continuous">
     <origin
-      xyz="0.007 -0.0009 0.002"
-      rpy="0 0 1.5708" />
+      xyz="0 -0.0009 0.002"
+      rpy="0 0 1.5708" /> <!--007-->
     <parent
       link="wheel_b_axis" />
     <child

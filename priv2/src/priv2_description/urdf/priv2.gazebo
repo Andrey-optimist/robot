@@ -5,16 +5,16 @@
    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <legacyMode>false</legacyMode>
       <alwaysOn>false</alwaysOn>
-      <updateRate>20</updateRate>
+      <updateRate>5</updateRate>
       <leftJoint>Joint_wheel_l</leftJoint>
       <rightJoint>Joint_wheel_r</rightJoint>
 	<wheelAcceleration>1</wheelAcceleration>
 	<publishOdomTF>true</publishOdomTF>
 	<publishWheelTF>false</publishWheelTF>
 	<rosDebugLevel>na</rosDebugLevel>
-       <wheelSeparation>0.16</wheelSeparation>
+       <wheelSeparation>0.06</wheelSeparation>
       <wheelDiameter>0.04</wheelDiameter>
-      <wheelTorque>10</wheelTorque>
+      <wheelTorque>20</wheelTorque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
@@ -48,13 +48,17 @@
     <fdir1>1 0 0</fdir1>
     <material>Gazebo/FlatBlack</material>
   </gazebo>
+<gazebo reference="wheel_b">
+
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
 
 
  <!-- hokuyo -->
   <gazebo reference="hokuyo">
     <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
+      <visualize>false</visualize>
       <update_rate>40</update_rate>
       <ray>
         <scan>
