@@ -12,7 +12,7 @@
   <joint name="base_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
-    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 3.14"/>
   </joint>
 
 
@@ -84,13 +84,10 @@
        
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="1.57 0 0" />
+   <collision>
+       <origin xyz="0 0 0.005" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://priv2/src/priv2_description/meshes/wheel_r.STL" />
+        <cylinder length="0.01" radius="0.02"/>
       </geometry>
     </collision>
 
@@ -98,10 +95,10 @@
 
 
    <joint
-    name="Joint_wheel_r"
+    name="joint_wheel_r"
     type="continuous">
     <origin
-      xyz="-0.025 0.03 0.015"
+      xyz="-0.025 0.035 0.015"
       rpy="-1.5708 0 0" />
     <parent
       link="base_link" />
@@ -141,13 +138,10 @@
           rgba="0.79216 0.81961 0.93333 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"  
-        rpy="1.57 0 0" /> 
+  <collision>
+       <origin xyz="0 0 0.005" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://priv2/src/priv2_description/meshes/wheel_l.STL" />
+        <cylinder length="0.01" radius="0.02"/>
       </geometry>
     </collision>
  
@@ -155,10 +149,10 @@
 
 
   <joint
-    name="Joint_wheel_l"
+    name="joint_wheel_l"
     type="continuous">
    <origin
-      xyz="-0.025 -0.03 0.015"
+      xyz="-0.025 -0.035 0.015"
       rpy="1.5708 0 0" />
     <parent
       link="base_link" />
@@ -171,7 +165,7 @@
 
  
 
- <link
+ <!--<link
     name="wheel_b_axis">
     <inertial>
       <origin
@@ -210,25 +204,27 @@
           filename="package://priv2/src/priv2_description/meshes/axis_b.STL" />
       </geometry>
     </collision>
-  </link>
+  </link> -->
+
   <joint
     name="Joint_wheel_b"
     type="continuous">
     <origin
-      xyz="0.025024 0 0"
-      rpy="0 0 0" />
+      xyz="0.025024 0 -0.001"
+      rpy="0 0 1.57" />
     <parent
       link="base_link" />
     <child
-      link="wheel_b_axis" />
+      link="wheel_b" />
     <axis
-      xyz="0 0 -1" />
+      xyz="1 0 0" />
   </joint>
+
   <link
     name="wheel_b">
     <inertial>
       <origin
-        xyz="0 -0.0009 0"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.1" />
@@ -246,7 +242,8 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://priv2/src/priv2_description/meshes/wheel_b.STL" />
+          filename="package://priv2/src/priv2_description/meshes/wheel_b.STL"
+	  scale="0.5 0.5 0.5" />
       </geometry>
       <material
         name="">
@@ -260,25 +257,26 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://priv2/src/priv2_description/meshes/wheel_b.STL" />
+          filename="package://priv2/src/priv2_description/meshes/wheel_b.STL" 
+	scale="0.5 0.5 0.5" />
       </geometry>
     </collision>
 
   </link>
 
-  <joint
+ <!-- <joint
     name="Joint_wheel_b_axis"
     type="continuous">
     <origin
-      xyz="0 -0.0009 0.002"
-      rpy="0 0 1.5708" /> <!--007-->
+      xyz="0.0055 -0.0003 -0.0015"
+      rpy="0 0 1.5708" /> 007
     <parent
       link="wheel_b_axis" />
     <child
       link="wheel_b" />
     <axis
       xyz="1 0 0" />
-  </joint>
+  </joint> -->
 
  <!-- hokuyo -->
   <link name="hokuyo">

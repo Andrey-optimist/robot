@@ -6,21 +6,22 @@
       <legacyMode>false</legacyMode>
       <alwaysOn>false</alwaysOn>
       <updateRate>5</updateRate>
-      <leftJoint>Joint_wheel_l</leftJoint>
-      <rightJoint>Joint_wheel_r</rightJoint>
+      <leftJoint>joint_wheel_l</leftJoint>
+      <rightJoint>joint_wheel_r</rightJoint>
 	<wheelAcceleration>1</wheelAcceleration>
 	<publishOdomTF>true</publishOdomTF>
 	<publishWheelTF>false</publishWheelTF>
 	<rosDebugLevel>na</rosDebugLevel>
-       <wheelSeparation>0.06</wheelSeparation>
+       <wheelSeparation>0.07</wheelSeparation>
       <wheelDiameter>0.04</wheelDiameter>
-      <wheelTorque>20</wheelTorque>
+      <wheelTorque>10</wheelTorque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
+<torgue>20</torgue>
       <robotBaseFrame>base_footprint</robotBaseFrame>
 <publishWheelJointState>true</publishWheelJointState>
- <publishTf>true</publishTf>
+ <publishTf>1</publishTf>
     </plugin> 
   </gazebo> 
   <gazebo reference="base_link">
