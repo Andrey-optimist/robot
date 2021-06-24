@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
-   <!-- global params-->
-    <arg name="robot" default="priv2"/>
+    <!-- global params-->
+    <arg name="localization_type" default="AMCL"/>
+    <!-- Possible variants
+        FIXED_ODOM   
+        AMCL
+        GMAPPING
+    -->
+    <arg name="map" default="my_map"/>
+    <!-- Possible maps 
+        nothing
+        my_map
+    -->
    
-  
     <!-- URDF description -->
     <param name="robot_description" command="$(find xacro)/xacro '$(find priv2)/src/priv2_description/urdf/priv2.xacro'"/>
-
-   <!-- TF stuff -->
-        <!-- send fake joint values -->
 
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
         <param name="use_gui" value="false"/>
@@ -17,16 +23,16 @@
         <!-- Combine joint values -->
       <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
     
-        <!-- fixed odom -->
-  <node pkg="tf" type="static_transform_publisher" name="static_odom_broadcaster"
-        args="0 0 0 0 0 0 map odom 100"/> 
     
-    <!-- run gazebo and spawn mybot  -->
-   <include file="$(find priv2)/src/priv2_gazebo/launch/priv2_world.launch"/>
+    <!-- run gazebo and spawn mybot -->
+   <include file="$(find priv2)/src/priv2_gazebo/launch/priv2_world.launch"/> 
     
     <!-- software-->
-    <include file="$(find priv2)/src/priv2_config/launch/priv2_software.launch"/> 
+    <include file="$(find priv2)/src/priv2_config/launch/priv2_software.launch"> 
+<arg name="localization_type" value="$(arg localization_type)"/>
+        <arg name="map" value="$(arg map)"/>
+	</include>
 
      <!-- visualization -->      
-   <node name="rviz" pkg="rviz" type="rviz"/> 
+   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find priv2)/src/priv2_config/rviz/priv2_rviz.rviz"/> 
 </launch>
