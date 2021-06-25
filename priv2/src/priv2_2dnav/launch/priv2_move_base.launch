@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-   
-	<node pkg="map_server" type="map_server" name="map_server" args="$(find priv2)/src/priv2_2dnav/config/map_empty.yaml"/>
+  
 
    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
         
@@ -13,7 +12,7 @@
         
         <rosparam file="$(find priv2)/src/priv2_2dnav/config/global_costmap_params.yaml" command="load" /> 
         
-        <rosparam file="$(find priv2)/src/priv2_2dnav/config/priv2_param.yaml" command="load" />
+        <rosparam file="$(find priv2)/src/priv2_2dnav/config/move_base_params.yaml" command="load" />
         <remap from="cmd_vel" to="cmd_vel"/>
         <remap from="odom" to="odom"/>
 

@@ -7,10 +7,10 @@ recovery_behaviors: #[]
   - name: agressive_reset
     type: clear_costmap_recovery/ClearCostmapRecovery
   
-controller_frequency: 20.
-planner_frequency: 0.  # 0. is only plan on a new goal or when local planner fails
-planner_patience: 5.
-controller_patience: 15.
+controller_frequency: 2.
+planner_frequency: 2.  # 0. is only plan on a new goal or when local planner fails
+planner_patience: 2.
+controller_patience: 2.
 recovery_behavior_enables: true
 shutdown_costmaps: false
 oscillation_timeout: 0.  # 0. is infinite
@@ -48,10 +48,9 @@ DWAPlannerROS:
   max_vel_y: 0.
   min_vel_y: 0.
   max_vel_theta: 1.0  # 0.5  
-  max_rot_vel: 1.0
 
   yaw_goal_tolerance: 0.3
-  xy_goal_tolerance: 0.3
+  xy_goal_tolerance: 0.1
   latch_xy_goal_tolerance: false
 
   sim_time: 1.7
