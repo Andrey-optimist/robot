@@ -1,4 +1,4 @@
-# How ro run:
+# How to run:
 
 rosrun priv2 tf_broadcaster 
 
