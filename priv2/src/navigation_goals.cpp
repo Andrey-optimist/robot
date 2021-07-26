@@ -7,11 +7,11 @@ typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseCl
 
 
 #define NUM_GOALS 4
-double goals[NUM_GOALS][3] = {
-	{0.0, -1.0, 1.0}, // x y
-	{-1.0, -1.0, 0.5}, 
-	{-1.0, 0.0, 1.0},
-	{0.0, 0.0, 0.5},	
+double goals[NUM_GOALS][4] = {
+	{0.0, -1.0, 0.7071, -0.7071}, // x y z w
+	{-1.0, -1.0, 1, 0.0}, 
+	{-1.0, 0.0, 0.7071, 0.7071},
+	{0.0, 0.0, 0.0, 1},	
 };
 
 
@@ -33,7 +33,9 @@ int main(int argc, char** argv)
 	{
 		goal.target_pose.pose.position.x = goals[i][0];
 		goal.target_pose.pose.position.y = goals[i][1];
-		goal.target_pose.pose.orientation.w = goals[i][2];
+		goal.target_pose.pose.orientation.z = goals[i][2];
+		goal.target_pose.pose.orientation.w = goals[i][3];
+		
 
 		ROS_INFO("Sending goal: (%f; %f)", goals[i][0], goals[i][1]);
 		ac.sendGoal(goal);
