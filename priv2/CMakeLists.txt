@@ -128,4 +128,10 @@ target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
 add_executable(navigation_goals src/navigation_goals.cpp)
 target_link_libraries(navigation_goals ${catkin_LIBRARIES})
 
+add_executable(navigation_goals1 src/navigation_goals1.cpp)
+target_link_libraries(navigation_goals1 ${catkin_LIBRARIES})
+
+add_executable(navigation_goals_test src/navigation_goals_test.cpp)
+target_link_libraries(navigation_goals_test ${catkin_LIBRARIES})
+
 
