@@ -2,7 +2,7 @@
 
 copy directoty priv2 to your workspace
 
-roslaunch priv2 priv2_gazebo.launch localization_type:='AMCL' map:=map
+roslaunch priv2 priv2_gazebo.launch
 
 rosrun priv2 tf_broadcaster 
 
