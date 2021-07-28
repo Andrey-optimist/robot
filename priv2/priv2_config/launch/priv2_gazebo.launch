@@ -8,7 +8,7 @@
         AMCL
         GMAPPING
     -->
-    <arg name="map" default="my_map"/>
+    <arg name="map" default="map"/>
     <!-- Possible maps 
         nothing
         my_map
