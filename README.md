@@ -6,4 +6,4 @@ roslaunch priv2 priv2_gazebo.launch
 
 rosrun priv2 tf_broadcaster 
 
-rosrun priv2 navigation_goals_test
+rosrun priv2 navigation_goals1
