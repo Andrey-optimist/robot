@@ -4,6 +4,10 @@
        Access with slash at the beginning -->
 <param name="robot_description" command="$(find xacro)/xacro '$(find priv2)/priv2_description/urdf/priv2.xacro'"/>
 
+         <!-- Run the map server --> 
+	<arg name="map_file" default="$(find priv2)/priv2_2dnav/maps/map.yaml"/>
+	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
   <!-- BEGIN ROBOT 1-->
   <group ns="robot1">
     <param name="tf_prefix" value="robot1_tf" />

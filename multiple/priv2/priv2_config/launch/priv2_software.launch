@@ -2,16 +2,13 @@
 <launch>
 
    <arg name="localization_type" default="AMCL"/>
+   <arg name="map" default="map"/>
 <param name="/use_sim_time" value="true"/>
 		
 <!-- fixed odom  -->
     <node if="$(eval localization_type == 'fixed_odom')"   pkg="tf" type="static_transform_publisher" name="static_odom_broadcaster"
-        args="0 0 0 0 0 0 map robot1_tf/odom 100"/>  
-
-	<!-- AMCL -->
-	<include file="$(find priv2)/priv2_2dnav/launch/amcl_robot1.launch" />
-	<include file="$(find priv2)/priv2_2dnav/launch/amcl_robot2.launch" />
-
+        args="0 0 0 0 0 0 map 100"/>  
+	
      <!-- gmapping -->
     <node if="$(eval localization_type == 'GMAPPING')" pkg="gmapping" type="slam_gmapping" name="gmapping" output="screen">                
         <param name="base_frame" value="base_footprint"/>
@@ -34,6 +31,7 @@
     <param name="amcl/initial_pose_x" value="0" />
     <param name="amcl/initial_pose_y" value="0" />
     <include file="$(find priv2)/priv2_2dnav/launch/priv2_move_base_1.launch" />
+    <include file="$(find priv2)/priv2_2dnav/launch/amcl_robot1.launch" />
   </group>
 
 	<group ns="robot2">
@@ -41,9 +39,8 @@
     <param name="amcl/initial_pose_x" value="-1" />
     <param name="amcl/initial_pose_y" value="0" />
     <include file="$(find priv2)/priv2_2dnav/launch/priv2_move_base_2.launch" />
+    <include file="$(find priv2)/priv2_2dnav/launch/amcl_robot2.launch" />
   </group>
 
-         <!-- Run the map server --> 
- 
    
 </launch>

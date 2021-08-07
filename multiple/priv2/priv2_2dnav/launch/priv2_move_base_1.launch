@@ -3,7 +3,7 @@
 
 	<arg name="odom_frame_id"   default="robot1_tf/odom"/>
 	<arg name="base_frame_id"   default="robot1_tf/base_footprint"/>
-	<arg name="global_frame_id" default="map"/>
+	<arg name="global_frame_id" default="map1"/>
 	<arg name="odom_topic" default="/robot1/odom" />
 	<arg name="laser_topic" default="/robot1/priv2/laser/scan" />
 
@@ -19,11 +19,12 @@
     <param name="local_costmap/global_frame" value="$(arg odom_frame_id)"/>
     <param name="local_costmap/robot_base_frame" value="$(arg base_frame_id)"/>
     <param name="DWAPlannerROS/global_frame_id" value="$(arg odom_frame_id)"/>
+    <param name="laser_scan_sensor/topic" value="$(arg laser_topic)"/>
 
     <remap from="cmd_vel" to="/robot1/cmd_vel"/>
     <remap from="odom" to="$(arg odom_topic)"/>
     <remap from="scan" to="$(arg laser_topic)"/>
-    <remap from="map" to="map" />
+    <remap from="map" to="map1" />
 
     <remap from="/move_base_simple/goal"					   to="/robot1/move_base_simple/goal" />
     <remap from="/move_base/global_costmap/costmap"                                to="/robot1/move_base/global_costmap/costmap" />
