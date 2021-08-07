@@ -8,7 +8,7 @@
         GMAPPING
     -->
 	
-	<arg name="map" default="my_map"/>
+	<arg name="map" default="map"/>
 	<!-- Possible maps 
         nothing
         my_map
@@ -22,9 +22,11 @@
     
     <node if="$(eval localization_type == 'AMCL' and map == 'nothing')" name="map_server" pkg="map_server" type="map_server" args="$(find priv2)/priv2_2dnav/config/map_empty.yaml"/>
     
-    <node if="$(eval localization_type == 'AMCL' and map == 'map')" name="map_server" pkg="map_server" type="map_server" args="$(find priv2)/priv2_2dnav/maps/map.yaml"/>  --> 
+    <node if="$(eval localization_type == 'AMCL' and map == 'map')" name="map_server" pkg="map_server" type="map_server" args="$(find priv2)/priv2_2dnav/maps/map.yaml">
+    <param name="frame_id" value="map1"/>
+    </node>  
     
-  <!--  <node if="$(eval localization_type == 'AMCL' and map == 'nothing')" name="map_server" pkg="map_server" type="map_server" args="$(find priv2)/priv2_2dnav/config/map_empty.yaml"/> -->
+    <node if="$(eval localization_type == 'AMCL' and map == 'nothing')" name="map_server" pkg="map_server" type="map_server" args="$(find priv2)/priv2_2dnav/config/map_empty.yaml"/> 
     
 
  <!-- Run AMCL -->
@@ -57,6 +59,7 @@
         <param name="update_min_d" value="0.2"/>
         <param name="update_min_a" value="0.5"/>
         <param name="odom_frame_id" value="odom"/>
+	<param name="global_frame_id" value="map1"/>
         <param name="resample_interval" value="1"/>
         <param name="transform_tolerance" value="0.1"/>
         <param name="recovery_alpha_slow" value="0.0"/>
@@ -81,8 +84,6 @@
 	<param name="xmax" value="5"/>
 	<param name="ymin" value="-3.1"/>
 	<param name="xmin" value="-3.5"/>
-     
-        
         <remap from="scan" to="/priv2/laser/scan"/>        
     </node>
 

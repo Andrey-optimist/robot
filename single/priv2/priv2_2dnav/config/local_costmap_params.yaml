@@ -1,6 +1,6 @@
 local_costmap:
   plugins: []
-  global_frame: map
+  global_frame: odom
   robot_base_frame: base_footprint
   update_frequency: 2.5
   publish_frequency: 2.5
