@@ -1,8 +1,9 @@
 # How to run:
 
-copy directoty priv2 to your workspace
 
-roslaunch priv2 priv2_gazebo.launch
+copy directoty priv2/try2 to your workspace
+
+roslaunch priv2 priv2_gazebo.launch/simulation.launch
 
 rosrun priv2 tf_broadcaster 
 
