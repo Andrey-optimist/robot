@@ -1,7 +1,7 @@
 # How to run:
 
 
-copy directoty priv2/try2 to your workspace
+copy directoty priv2/try2/priv2m to your workspace
 
 roslaunch priv2 priv2_gazebo.launch/simulation.launch
 
