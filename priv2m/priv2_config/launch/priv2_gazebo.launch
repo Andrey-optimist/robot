@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <!-- global params-->
+    <arg name="localization_type" default="AMCL"/>
+    
+    
+     <!-- Run the map server  -->        
+    <node  name="map_server" pkg="map_server" type="map_server" args="$(find priv2m)/priv2_2dnav/maps/map.yaml">
+    <param name="frame_id" value="/map"/>
+    </node> 
+   
+    
+    <!-- run gazebo and spawn mybot -->
+    <include file="$(find priv2m)/priv2_gazebo/launch/priv2_world.launch"/> 
+     <include file="$(find priv2m)/priv2_config/launch/robots.launch"/>   
+     
+     
+    
+    <!-- software-->
+    <include file="$(find priv2m)/priv2_config/launch/priv2_software.launch"> 
+    <arg name="localization_type" value="$(arg localization_type)"/>
+    </include>
+
+     <!-- visualization    args="-d $(find priv2)/priv2_config/rviz/priv2_rviz.rviz"  -->      
+   <node name="rviz" pkg="rviz" type="rviz" /> 
+</launch>

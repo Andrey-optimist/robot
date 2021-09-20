@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+ <arg name="localization_type" default="AMCL"/>	      
+    
+   <group ns="robot1">
+     <param name="tf_prefix" value="robot1" />
+     <param name="amcl/initial_pose_x" value="0" />
+     <param name="amcl/initial_pose_y" value="0" />
+     <include file="$(find priv2m)/priv2_2dnav/launch/move_base_1.launch" />
+     <include file="$(find priv2m)/priv2_2dnav/launch/amcl_1.launch" />
+   </group>
+   
+   
+      <group ns="robot2">
+     <param name="tf_prefix" value="robot2" />
+     <param name="amcl/initial_pose_x" value="0" />
+     <param name="amcl/initial_pose_y" value="0" />
+     <include file="$(find priv2m)/priv2_2dnav/launch/move_base_2.launch" />
+     <include file="$(find priv2m)/priv2_2dnav/launch/amcl_2.launch" />
+   </group>
+    
+    
+</launch>
