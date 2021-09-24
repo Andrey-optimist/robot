@@ -1,7 +1,6 @@
 # How to run:
 
-
-copy directoty priv2/priv2m to your workspace.
+Copy directoty priv2/priv2m to your workspace.
 
 For priv2 test:
 
