@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <node  name="map_odom1" pkg="priv2m" type="tf2_frame_1" />
+  
+  <node  name="map_odom2" pkg="priv2m" type="tf2_frame_2" />
+  
+</launch>

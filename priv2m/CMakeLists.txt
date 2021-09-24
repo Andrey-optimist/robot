@@ -125,13 +125,11 @@ include_directories(
 add_executable(tf_broadcaster src/tf_broadcaster.cpp)
 target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
 
-add_executable(navigation_goals src/navigation_goals.cpp)
-target_link_libraries(navigation_goals ${catkin_LIBRARIES})
-
-add_executable(navigation_goals1 src/navigation_goals1.cpp)
-target_link_libraries(navigation_goals1 ${catkin_LIBRARIES})
-
 add_executable(navigation_goals_test src/navigation_goals_test.cpp)
 target_link_libraries(navigation_goals_test ${catkin_LIBRARIES})
 
+add_executable(tf2_frame_1 src/tf2_frame_1.cpp)
+target_link_libraries(tf2_frame_1 ${catkin_LIBRARIES})
 
+add_executable(tf2_frame_2 src/tf2_frame_2.cpp)
+target_link_libraries(tf2_frame_2 ${catkin_LIBRARIES})
