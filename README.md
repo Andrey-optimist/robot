@@ -7,7 +7,7 @@ For priv2 test:
 
 roslaunch priv2m priv2_gazebo.launch
 $rosrun priv2 tf_broadcaster 
-$rosrun priv2 navigation_goals1
+$rosrun priv2 navigation_goals_test
 
 
 To launch priv2 project:
