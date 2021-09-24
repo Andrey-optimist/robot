@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<robot name="priv2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="priv2m" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:arg name="prefix" default=""/>
-  <xacro:include filename="$(find priv2)/priv2_description/urdf/priv2.gazebo" />
-  <xacro:include filename="$(find priv2)/priv2_description/urdf/materials.xacro" />
-  <xacro:include filename="$(find priv2)/priv2_description/urdf/macros.xacro" />
+  <xacro:include filename="$(find priv2m)/priv2_description/urdf/priv2.gazebo" />
+  <xacro:include filename="$(find priv2m)/priv2_description/urdf/materials.xacro" />
+  <xacro:include filename="$(find priv2m)/priv2_description/urdf/macros.xacro" />
 
   <link name="$(arg prefix)base_footprint"/>
 
@@ -36,7 +36,7 @@
         rpy="0 0 3.14" /> 
       <geometry> 
         <mesh
-          filename="package://priv2/priv2_description/meshes/base_link.STL" />
+          filename="package://priv2m/priv2_description/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -50,7 +50,7 @@
         rpy="0 0 3.14" />
       <geometry>
         <mesh
-          filename="package://priv2/priv2_description/meshes/base_link.STL" />
+          filename="package://priv2m/priv2_description/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -77,7 +77,7 @@
         rpy="1.57 0 0" /> 
       <geometry>
         <mesh
-          filename="package://priv2/priv2_description/meshes/wheel_r.STL" />
+          filename="package://priv2m/priv2_description/meshes/wheel_r.STL" />
       </geometry>
       <material
         name="brown">
@@ -130,7 +130,7 @@
         rpy="1.57 3.14 0" /> <!--0.0375 -0.0175 -0.13 -->
       <geometry>
         <mesh
-          filename="package://priv2/priv2_description/meshes/wheel_l.STL" />
+          filename="package://priv2m/priv2_description/meshes/wheel_l.STL" />
       </geometry>
       <material
         name="">
@@ -185,7 +185,7 @@
         rpy="0 1.57 0" />
       <geometry>
         <mesh
-          filename="package://priv2/priv2_description/meshes/wheel_b.STL"
+          filename="package://priv2m/priv2_description/meshes/wheel_b.STL"
 	  scale="0.5 0.5 0.5" />
       </geometry>
       <material
@@ -200,7 +200,7 @@
         rpy="0 1.57 0" />
       <geometry>
         <mesh
-          filename="package://priv2/priv2_description/meshes/wheel_b.STL" 
+          filename="package://priv2m/priv2_description/meshes/wheel_b.STL" 
 	scale="0.5 0.5 0.5" />
       </geometry>
     </collision>
@@ -233,7 +233,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://priv2/priv2_description/meshes/hokuyo.dae" scale="0.1 0.1 0.1"/>
+        <mesh filename="package://priv2m/priv2_description/meshes/hokuyo.dae" scale="0.1 0.1 0.1"/>
       </geometry>
     </visual>
 
