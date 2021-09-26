@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <robot>
-
+  <arg name="prefix" default=""/>
  <gazebo>
    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <legacyMode>false</legacyMode>
@@ -19,17 +19,17 @@
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
-<torgue>20</torgue>
+	<torgue>20</torgue>
       <robotBaseFrame>base_footprint</robotBaseFrame>
 <publishWheelJointState>true</publishWheelJointState>
  <publishTf>1</publishTf>
     </plugin> 
   </gazebo> 
-  <gazebo reference="base_link">
+  <gazebo reference="$(arg prefix)base_link">
     <material>Gazebo/White</material>
   </gazebo>
 
-  <gazebo reference="wheel_l">
+  <gazebo reference="$(arg prefix)wheel_l">
  <mu1>0.5</mu1>
     <mu2>0.1</mu2>
     <kp>500000.0</kp>
@@ -40,7 +40,7 @@
     <material>Gazebo/FlatBlack</material>
   </gazebo>
 
-  <gazebo reference="wheel_r">
+  <gazebo reference="$(arg prefix)wheel_r">
  <mu1>0.5</mu1>
     <mu2>0.1</mu2>
     <kp>500000.0</kp>
@@ -50,14 +50,14 @@
     <fdir1>1 0 0</fdir1>
     <material>Gazebo/FlatBlack</material>
   </gazebo>
-<gazebo reference="wheel_b">
-
+  
+<gazebo reference="$(arg prefix)wheel_b">
     <material>Gazebo/FlatBlack</material>
   </gazebo>
 
 
  <!-- hokuyo -->
-  <gazebo reference="hokuyo">
+  <gazebo reference="$(arg prefix)hokuyo">
     <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>

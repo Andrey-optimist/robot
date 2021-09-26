@@ -3,7 +3,9 @@
 <robot name="priv2m" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:arg name="prefix" default=""/>
-  <xacro:include filename="$(find priv2m)/priv2_description/urdf/priv2.gazebo" />
+  <xacro:include filename="$(find priv2m)/priv2_description/urdf/priv2.gazebo" >
+  <!--<param name="prefix" value="$(arg prefix)"/> -->
+  </xacro:include>
   <xacro:include filename="$(find priv2m)/priv2_description/urdf/materials.xacro" />
   <xacro:include filename="$(find priv2m)/priv2_description/urdf/macros.xacro" />
 
@@ -207,7 +209,7 @@
   </link>
 
   <joint
-    name="Joint_wheel_b"
+    name="joint_wheel_b"
     type="continuous">
     <origin
       xyz="-0.025024 0 -0.001"

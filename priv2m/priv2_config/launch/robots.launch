@@ -11,10 +11,10 @@
   </group>
   
     <!-- BEGIN ROBOT 2-->
-  <group ns="robot2">     
-  <include file="$(find priv2m)/priv2_config/launch/one_robot.launch" >    
-  <!--<arg name="prefix" value="robot2/"/> -->
-      <arg name="init_pose" value="-x 0 -y 0 -z 0" />
+  <group ns="robot2">
+  <include file="$(find priv2m)/priv2_config/launch/one_robot.launch" >      
+  	<!--<arg name="prefix" value="robot2/"/> -->
+      <arg name="init_pose" value="-x -1 -y 0 -z 0" />
       <arg name="robot_name"  value="Robot2" />
     </include>    
     
