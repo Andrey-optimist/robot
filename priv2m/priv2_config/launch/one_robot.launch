@@ -4,8 +4,9 @@
 <arg name="prefix" default=""/>
   <!-- No namespace here as we will share this description. 
        Access with slash at the beginning -->
-<param name="robot_description" command="$(find xacro)/xacro '$(find priv2m)/priv2_description/urdf/priv2.xacro'
-prefix:=$(arg prefix)"/>
+<param name="robot_description" command="$(find xacro)/xacro '$(find priv2m)/priv2_description/urdf/priv2.xacro' prefix:=$(arg prefix)"/>
+
+<param name="robot_prefix" command="$(find xacro)/xacro '$(find priv2m)/priv2_description/urdf/priv2.gazebo.xacro' prefix:=$(arg prefix)"/>
 	
 	<arg name="robot_name"/>
     	<arg name="init_pose"/>	

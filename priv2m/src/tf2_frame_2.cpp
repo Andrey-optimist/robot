@@ -12,6 +12,8 @@ int main(int argc, char** argv){
   geometry_msgs::TransformStamped transformStamped;
   tf2_ros::Buffer tfBuffer;
   tf2_ros::TransformListener tfListener(tfBuffer);
+  
+
 
   ros::Publisher robot_vel = node.advertise<geometry_msgs::Twist>("robot2/cmd_vel", 10);
 
@@ -19,7 +21,7 @@ int main(int argc, char** argv){
   while (node.ok()){
 
     try{
-      transformStamped = tfBuffer.lookupTransform("robot2/base_footprint", "robot2/odom",ros::Time(0));
+      transformStamped = tfBuffer.lookupTransform("robot2/odom", "robot2/base_footprint",ros::Time(0));
     }
 
     catch (tf2::TransformException &ex) {
@@ -29,7 +31,7 @@ int main(int argc, char** argv){
     }
 
     transformStamped.header.frame_id = "map";
-    transformStamped.child_frame_id = "base_footprint";
+    transformStamped.child_frame_id = "robot2/base_footprint";
 
     geometry_msgs::Twist vel_msg;
 
