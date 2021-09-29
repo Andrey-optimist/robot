@@ -127,7 +127,7 @@
     <visual>
       <origin
         xyz="0 0 0" 
-        rpy="1.57 3.14 0" /> <!--0.0375 -0.0175 -0.13 -->
+        rpy="1.57 3.14 0" /> 
       <geometry>
         <mesh
           filename="package://priv2m/priv2_description/meshes/wheel_l.STL" />
@@ -162,9 +162,43 @@
       xyz="0 0 1" />
 
   </joint>
+  
+  
+  
+  <!--<link name="$(arg prefix)test" >
+    <visual>      
+       <geometry>        
+          <box size="0.01 0.01 0.01"/>
+       </geometry>     
+    </visual>
+  
+    <collision>
+       <origin xyz="0 0 -0.005" rpy="0 0 0"/>
+         <geometry>
+            <box size="0.01 0.01 0.01"/>
+         </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="$(arg prefix)joint_test"
+    type="fixed">
+    <origin
+      xyz="0 0.01 0"
+      rpy="-1.57 0 0" />
+    <parent
+      link="$(arg prefix)base_link" />
+    <child
+      link="$(arg prefix)test" />
+    <axis
+      xyz="0 0 1" />
+  </joint> -->
+  
+  
+  
+  
 
-
-  <link   name="$(arg prefix)wheel_b">
+  <link name="$(arg prefix)wheel_b">
     <inertial>
       <origin
         xyz="0 0 0"
@@ -180,38 +214,33 @@
         izz="5.0048E-08" />
     </inertial> 
     <visual>
-      <origin
+        <origin
         xyz="0 0 0"
         rpy="0 1.57 0" />
-      <geometry>
-        <mesh
-          filename="package://priv2m/priv2_description/meshes/wheel_b.STL"
-	  scale="0.5 0.5 0.5" />
-      </geometry>
-      <material
+        <geometry>
+            <cylinder length="0.01" radius="0.0035"/>
+        </geometry>
+        <material
         name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
     </visual>
     <collision>
-      <origin
+       <origin
         xyz="0 0 0"
-        rpy="0 1.57 0" />
-      <geometry>
-        <mesh
-          filename="package://priv2m/priv2_description/meshes/wheel_b.STL" 
-	scale="0.5 0.5 0.5" />
-      </geometry>
+        rpy="0 1.57 0" />     
+       <geometry>
+          <cylinder length="0.015" radius="0.025"/>
+       </geometry>   
     </collision>
   </link>
 
   <joint
-    name="Joint_wheel_b"
-    type="continuous">
+    name="joint_wheel_b"
+    type="fixed">
     <origin
       xyz="-0.025024 0 -0.001"
-      rpy="-1.57 0 0" />
+      rpy="0 0 1.57" />
     <parent
       link="$(arg prefix)base_link" />
     <child

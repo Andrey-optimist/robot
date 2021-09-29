@@ -7,7 +7,6 @@
       <legacyMode>false</legacyMode>
       <alwaysOn>false</alwaysOn>
       <updateRate>5</updateRate>
-      <robotNamespace>$(arg prefix)</robotNamespace>
       <leftJoint>joint_wheel_r</leftJoint>
       <rightJoint>joint_wheel_l</rightJoint>
 	<wheelAcceleration>1</wheelAcceleration>
@@ -51,9 +50,18 @@
     <fdir1>1 0 0</fdir1>
     <material>Gazebo/FlatBlack</material>
   </gazebo>
-<gazebo reference="$(arg prefix)wheel_b">
-
+  
+  
+  <gazebo reference="$(arg prefix)wheel_b">
+    <mu1>0.02</mu1>
+    <mu2>0.01</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.0001</minDepth>
+    <maxVel>0.7</maxVel>
+    <fdir1>1 0 0</fdir1>
     <material>Gazebo/FlatBlack</material>
+    <selfCollide>false</selfCollide>
   </gazebo>
 
 
@@ -90,7 +98,6 @@
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
         <topicName>/priv2/laser/scan</topicName>
         <frameName>hokuyo</frameName>
-        <robotNamespace>$(arg prefix)</robotNamespace>
       </plugin>
     </sensor>
   </gazebo>

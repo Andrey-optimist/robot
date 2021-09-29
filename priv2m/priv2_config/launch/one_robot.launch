@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 
 <launch>
-<arg name="prefix" default=""/>
-  <!-- No namespace here as we will share this description. 
-       Access with slash at the beginning -->
+   <arg name="prefix" default=""/>
+
 <param name="robot_description" command="$(find xacro)/xacro '$(find priv2m)/priv2_description/urdf/priv2.xacro' prefix:=$(arg prefix)"/>
 
 <param name="robot_prefix" command="$(find xacro)/xacro '$(find priv2m)/priv2_description/urdf/priv2.gazebo.xacro' prefix:=$(arg prefix)"/>

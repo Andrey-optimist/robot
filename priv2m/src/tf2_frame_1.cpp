@@ -13,7 +13,7 @@ int main(int argc, char** argv){
   transformStamped.header.frame_id = "map";
   transformStamped.child_frame_id = "robot1/odom";
   transformStamped.transform.translation.x = 0.0;
-  transformStamped.transform.translation.y = 2.0;
+  transformStamped.transform.translation.y = 0.0;
   transformStamped.transform.translation.z = 0.0;
   tf2::Quaternion q;
         q.setRPY(0, 0, 0);
