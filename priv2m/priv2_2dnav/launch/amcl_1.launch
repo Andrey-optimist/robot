@@ -38,7 +38,7 @@
         
         <param name="use_map_topic" value="true"/>
         <param name="base_frame_id" value="robot1/base_footprint"/>
-        <remap from="scan" to="/priv2/laser/scan"/>
+        <remap from="scan" to="priv2/laser/scan"/>
         
     </node>
     

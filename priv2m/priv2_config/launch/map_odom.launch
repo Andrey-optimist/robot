@@ -2,7 +2,9 @@
 <launch>
 
   <node  name="map_odom1" pkg="priv2m" type="tf2_frame_1" />
+  <remap from="robot1/map" to="/map" />
   
   <node  name="map_odom2" pkg="priv2m" type="tf2_frame_2" />
-  
+  <remap from="robot2/map" to="/map" />    
+ 
 </launch>

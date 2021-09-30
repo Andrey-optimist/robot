@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
-   
-     <!-- Run the map server  -->        
-    <node  name="map_server" pkg="map_server" type="map_server" args="$(find priv2m)/priv2_2dnav/maps/map.yaml">
-    <param name="frame_id" value="map"/>
-    </node> 
-   
     
     <!-- run gazebo and spawn mybot -->
     <include file="$(find priv2m)/priv2_gazebo/launch/priv2_world.launch"/> 

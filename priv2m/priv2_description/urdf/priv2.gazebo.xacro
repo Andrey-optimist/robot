@@ -53,8 +53,8 @@
   
   
   <gazebo reference="$(arg prefix)wheel_b">
-    <mu1>0.02</mu1>
-    <mu2>0.01</mu2>
+    <mu1>0.001</mu1>
+    <mu2>0.001</mu2>
     <kp>500000.0</kp>
     <kd>10.0</kd>
     <minDepth>0.0001</minDepth>

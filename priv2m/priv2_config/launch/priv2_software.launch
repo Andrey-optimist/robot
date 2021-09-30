@@ -10,6 +10,7 @@
      	<include file="$(find priv2m)/priv2_2dnav/launch/move_base_1.launch" />
      	<include file="$(find priv2m)/priv2_2dnav/launch/amcl_1.launch" />
    </group>
+   <remap from="robot1/map" to="/map" />  
    
    	<!-- PARAMS AMCL, move_base for ROBOT1  -->
    	
@@ -20,6 +21,9 @@
    	<include file="$(find priv2m)/priv2_2dnav/launch/move_base_2.launch" />
    	<include file="$(find priv2m)/priv2_2dnav/launch/amcl_2.launch" />
    </group>
-    
+   <remap from="robot2/map" to="/map" />  
+   
+   
+   <include file="$(find priv2m)/priv2_config/launch/map_odom.launch" />      
     
 </launch>
